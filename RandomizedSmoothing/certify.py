@@ -26,7 +26,7 @@ def main():
 
     j_header('index', 'nat_y', 'adv_y', 'nat_rad', 'adv_rad', 'success')
     figure = FigureSaver()
-    for i in range(0, len(dataset), args.skip):
+    for i in range(0, 61, args.skip):
         (x, label) = dataset[i]
         x = x.cuda()
         first_x = x.data

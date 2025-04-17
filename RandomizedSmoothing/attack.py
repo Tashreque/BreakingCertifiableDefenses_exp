@@ -17,9 +17,19 @@ class SmoothAttack:
         torch.manual_seed(6247423)
 
         t = torch.rand_like(x[0] if duplicate_rgb else x).cuda() - 0.5
+
+        # # Tashreque comment
+        # print(f"T is {t}")
+        # print(f"shape is {t.shape}")
+
         t.requires_grad_()
 
         copy_size = (batch, 1, 1, 1)
+
+        # # Tashreque comment
+        # print(f"copy size is {t}")
+        # print(f"shape is {t.shape}")
+
         x_batch = x.repeat(copy_size).cuda()
         x_batch = x_batch + torch.randn_like(x_batch).cuda() * sigma
         y = torch.LongTensor([y]).cuda().repeat((batch,))
